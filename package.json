@@ -1,0 +1,22 @@
+{
+    "name": "directus",
+    "version": "1.0.0",
+    "description": "",
+    "main": "index.js",
+    "scripts": {
+      "start": "npx directus start",
+      "apply-snapshot": "npx directus schema apply db/db-snapshot.yaml --yes",
+      "bootstrap": "npx directus bootstrap",
+      "db-migrate-latest": "npx directus database migrate:latest",
+      "setup": "npm run remove-extensions && npm run bootstrap && npm run apply-snapshot && npm run copy-extensions && npm run db-migrate-latest && npm run build-extensions",
+      "setup-and-start": "npm run setup && npm run start"
+    },
+    "keywords": [],
+    "author": "Stefan Scharinger",
+    "license": "ISC",
+    "dependencies": {
+      "directus": "^10.9.0",
+      "pg": "^8.11.3"
+    }
+  }
+  
