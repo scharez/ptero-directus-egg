@@ -4,12 +4,15 @@ apt-get update -qq > /dev/null 2>&1 && apt-get install -qq > /dev/null 2>&1 -y g
 cd /mnt/server
 
 echo -e "[SETUP] Create folders"
-mkdir tmp && mkdir directus
+mkdir tmp
 
 echo -e "[SETUP] Copy Github files"
 git clone https://github.com/scharez/ptero-directus-egg.git ./gtemp > /dev/null 2>&1
 
-cp -r ./gtemp/nginx .
+cp -r ./gtemp/db .
+cp -r ./gtemp/uploads .
+cp -r ./gtemp/extensions .
+cp -r ./gtemp/package.json .
 cp ./gtemp/start.sh . && rm -R ./gtemp
 chmod +x start.sh
 

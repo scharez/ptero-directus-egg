@@ -16,7 +16,7 @@
     "license": "ISC",
     "dependencies": {
       "directus": "^10.9.0",
-      "pg": "^8.11.3"
+      "mysql2": "^3.9.2"
     }
   }
   
