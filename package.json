@@ -5,18 +5,15 @@
     "main": "index.js",
     "scripts": {
       "start": "npx directus start",
-      "apply-snapshot": "npx directus schema apply db/db-snapshot.yaml --yes",
       "bootstrap": "npx directus bootstrap",
+      "apply-snapshot": "npx directus schema apply db/db-snapshot.yaml --yes",
       "db-migrate-latest": "npx directus database migrate:latest",
-      "setup": "npm run remove-extensions && npm run bootstrap && npm run apply-snapshot && npm run copy-extensions && npm run db-migrate-latest && npm run build-extensions",
-      "setup-and-start": "npm run setup && npm run start"
     },
     "keywords": [],
     "author": "Stefan Scharinger",
     "license": "ISC",
     "dependencies": {
-      "directus": "^10.9.0",
-      "mysql2": "^3.9.2"
+      "directus": "^10.9.0"
     }
   }
   

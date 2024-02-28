@@ -9,6 +9,7 @@ mkdir tmp
 echo -e "[SETUP] Copy Github files"
 git clone https://github.com/scharez/ptero-directus-egg.git ./gtemp > /dev/null 2>&1
 
+echo -e "[SETUP] Copy files"
 cp -r ./gtemp/db .
 cp -r ./gtemp/uploads .
 cp -r ./gtemp/extensions .

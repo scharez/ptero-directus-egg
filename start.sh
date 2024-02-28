@@ -1,8 +1,29 @@
 #!/bin/bash
 
-echo "Installing directus"
-/usr/local/bin/npm --prefix /home/container/directus install
+echo "Installing directus..."
 
-/usr/local/bin/npm --prefix /home/container/directus run npx directus bootstrap && /usr/local/bin/npm --prefix /home/container/directus run npx directus schema apply db/db-snapshot.yaml --yes && /usr/local/bin/npm --prefix /home/container/directus run npx directus database migrate:latest && /usr/local/bin/npm --prefix /home/container/directus run npx directus start
+#install node modules
+if [ -f /home/container/package.json ]
+then
+/usr/local/bin/npm --prefix /home/container --max-old-space-size=512 install
+fi
+
+#run npm bootstrap
+if [ -f /home/container/.env]
+then
+/usr/local/bin/npm --prefix /home/container run bootstrap
+fi
+
+#run npm apply-snapshot
+if [ -f /home/container/db/db-snapshot.yaml]
+then
+/usr/local/bin/npm --prefix /home/container run bootstrap
+fi
+
+#run npm db-migrate-latest
+/usr/local/bin/npm --prefix /home/container run db-migrate-latest
+
+echo "Starting directus..."
+/usr/local/bin/npm --prefix /home/container run start
 
 echo "Directus successfully started"
