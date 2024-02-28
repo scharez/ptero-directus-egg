@@ -7,7 +7,7 @@
       "start": "npx directus start",
       "bootstrap": "npx directus bootstrap",
       "apply-snapshot": "npx directus schema apply db/db-snapshot.yaml --yes",
-      "db-migrate-latest": "npx directus database migrate:latest",
+      "db-migrate-latest": "npx directus database migrate:latest"
     },
     "keywords": [],
     "author": "Stefan Scharinger",
