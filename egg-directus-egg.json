@@ -1,0 +1,55 @@
+{
+    "_comment": "DO NOT EDIT: FILE GENERATED AUTOMATICALLY BY PTERODACTYL PANEL - PTERODACTYL.IO",
+    "meta": {
+        "version": "PTDL_v2",
+        "update_url": null
+    },
+    "exported_at": "2024-02-29T16:54:52+01:00",
+    "name": "Directus Egg",
+    "author": "admin@scharez.at",
+    "description": "Creates an Directus Egg. Directus is a Open Source Headless CMS (and More).",
+    "features": null,
+    "docker_images": {
+        "Nodejs 21": "ghcr.io\/parkervcp\/yolks:nodejs_21",
+        "Nodejs 20": "ghcr.io\/parkervcp\/yolks:nodejs_20",
+        "Nodejs 19": "ghcr.io\/parkervcp\/yolks:nodejs_19",
+        "Nodejs 18": "ghcr.io\/parkervcp\/yolks:nodejs_18"
+    },
+    "file_denylist": [],
+    "startup": "{{STARTUP_COMMAND}}",
+    "config": {
+        "files": "{\r\n    \".env\": {\r\n        \"parser\": \"file\",\r\n        \"find\": {\r\n            \"PORT=\": \"PORT={{server.build.default.port}}\"\r\n        }\r\n    }\r\n}",
+        "startup": "{\r\n    \"done\": \"[DONE] Everything has been installed\"\r\n}",
+        "logs": "{}",
+        "stop": "^C & ^C"
+    },
+    "scripts": {
+        "installation": {
+            "script": "#!\/bin\/bash\r\necho -e \"[SETUP] Install packages\"\r\napt-get update -qq > \/dev\/null 2>&1 && apt-get install -qq > \/dev\/null 2>&1 -y git wget\r\ncd \/mnt\/server\r\n\r\necho -e \"[SETUP] Copy Github files\"\r\ngit clone https:\/\/github.com\/scharez\/ptero-directus-egg.git .\/gtemp > \/dev\/null 2>&1\r\n\r\necho -e \"[SETUP] Copy files\"\r\ncp -r .\/gtemp\/db .\r\ncp -r .\/gtemp\/uploads .\r\ncp -r .\/gtemp\/extensions .\r\ncp -r .\/gtemp\/scripts .\r\n\r\nif [ -f package.json ]\r\nthen\r\n    cp -r .\/gtemp\/package.json .\r\nfi\r\n\r\ncp -r .\/gtemp\/.env .\r\n\r\nif [ \"${USE_SQLITE}\" == \"true\" ] || [ \"${USE_SQLITE}\" == \"1\" ]\r\nthen\r\n    cp -r .\/gtemp\/db.sqlite .\r\nfi\r\n\r\ncp .\/gtemp\/start.sh . && rm -R .\/gtemp\r\nchmod +x start.sh\r\necho -e \"[HINT] Edit the .env file further configurtion\"\r\necho -e \"[DONE] Everything has been installed\"",
+            "container": "debian:bookworm-slim",
+            "entrypoint": "bash"
+        }
+    },
+    "variables": [
+        {
+            "name": "Startup Command",
+            "description": "The startup file for Directus.",
+            "env_variable": "STARTUP_COMMAND",
+            "default_value": ".\/start.sh",
+            "user_viewable": true,
+            "user_editable": true,
+            "rules": "required|string",
+            "field_type": "text"
+        },
+        {
+            "name": "Use sqlite",
+            "description": "Enable sqlite support\r\n\r\n0 = false (default - mysql)\r\n1 = true",
+            "env_variable": "USE_SQLITE",
+            "default_value": "0",
+            "user_viewable": true,
+            "user_editable": true,
+            "rules": "required|boolean",
+            "field_type": "text"
+        }
+    ]
+}
