@@ -26,5 +26,5 @@ fi
 
 cp ./gtemp/start.sh . && rm -R ./gtemp
 chmod +x start.sh
-echo -e "[HINT] Edit the .env file further configurtion (db-config)"
+echo -e "[HINT] Edit the .env file for further configuration (db-config)"
 echo -e "[DONE] Everything has been installed"
