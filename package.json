@@ -13,7 +13,7 @@
     "author": "Stefan Scharinger",
     "license": "ISC",
     "dependencies": {
-      "directus": "^11.0.0",
+      "directus": "^11.1.0",
       "mysql2": "^3.11.0",
       "sqlite3": "^5.1.7"
     }
