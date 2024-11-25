@@ -14,7 +14,7 @@
     "license": "ISC",
     "dependencies": {
       "directus": "^11.2.2",
-      "mysql2": "^3.11.0",
+      "mysql2": "^3.11.4",
       "sqlite3": "^5.1.7"
     }
   }
