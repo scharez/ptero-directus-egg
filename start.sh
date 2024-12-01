@@ -23,6 +23,15 @@ fi
 #run npm db-migrate-latest
 /usr/local/bin/npm --prefix /home/container run db-migrate-latest
 
+#check if there are directories in the /extensions folder
+if find /extensions -mindepth 1 -type d | read;
+then
+#run the npm command if there are directories
+/usr/local/bin/npm --prefix /home/container run build-extensions
+else
+    echo "No extensions found - skipping install and build"
+fi
+
 echo "Starting directus..."
 /usr/local/bin/npm --prefix /home/container run start
 
