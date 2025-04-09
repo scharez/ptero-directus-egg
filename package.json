@@ -15,8 +15,8 @@
     "author": "Stefan Scharinger",
     "license": "ISC",
     "dependencies": {
-      "directus": "^11.2.2",
-      "mysql2": "^3.11.4",
+      "directus": "^11.6.1",
+      "mysql2": "^3.14.0",
       "sqlite3": "^5.1.7"
     }
   }
