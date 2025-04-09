@@ -10,7 +10,7 @@
     "description": "Creates an Directus Egg. Directus is a Open Source Headless CMS (and More).",
     "features": null,
     "docker_images": {
-        "Nodejs 22": "ghcr.io\/parkervcp\/yolks:nodejs_22",
+        "Nodejs 22": "ghcr.io/ptero-eggs/yolks:nodejs_22",
         "Nodejs 21": "ghcr.io\/parkervcp\/yolks:nodejs_21",
         "Nodejs 20": "ghcr.io\/parkervcp\/yolks:nodejs_20",
         "Nodejs 19": "ghcr.io\/parkervcp\/yolks:nodejs_19",
