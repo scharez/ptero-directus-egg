@@ -6,7 +6,7 @@
     },
     "exported_at": "2024-02-29T16:54:52+01:00",
     "name": "Directus Egg",
-    "author": "admin@scharez.at",
+    "author": "admin@tefware.at",
     "description": "Creates an Directus Egg. Directus is a Open Source Headless CMS (and More).",
     "features": null,
     "docker_images": {
